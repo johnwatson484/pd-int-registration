@@ -1,0 +1,12 @@
+services:
+  pd-int-registration:
+    build:
+      target: development
+    image: pd-int-registration-development
+    container_name: pd-int-registration-test
+    command: npm run test
+    volumes:
+      - ./app:/home/node/app
+      - ./test:/home/node/test
+      - ./test-output:/home/node/test-output
+      - ./package.json:/home/node/package.json

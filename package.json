@@ -1,0 +1,59 @@
+{
+  "name": "pd-int-registration",
+  "version": "1.0.0",
+  "description": "Registration",
+  "main": "app/index.js",
+  "type": "module",
+  "scripts": {
+    "pretest": "npm run test:lint",
+    "test": "jest --runInBand --forceExit",
+    "test:watch": "jest --coverage=false --onlyChanged --watch --runInBand",
+    "test:lint": "standard",
+    "test:debug": "node --inspect-brk=0.0.0.0 ./node_modules/jest/bin/jest.js --coverage=false --onlyChanged --watch --runInBand --no-cache",
+    "start:watch": "nodemon --inspect=0.0.0.0 --ext js --legacy-watch app/index.js",
+    "start:debug": "nodemon --inspect-brk=0.0.0.0 --ext js --legacy-watch app/index.js"
+  },
+  "author": "John Watson",
+  "license": "MIT",
+  "dependencies": {
+    "@azure/app-configuration": "1.5.0",
+    "@azure/identity": "4.0.1",
+    "@azure/service-bus": "7.9.4",
+    "@hapi/boom": "10.0.1",
+    "@hapi/hapi": "21.3.3",
+    "@hapi/inert": "7.1.0",
+    "@hapi/jwt": "3.2.0",
+    "@hapi/vision": "7.0.3",
+    "@hapi/wreck": "18.0.1",
+    "applicationinsights": "2.9.2",
+    "blipp": "4.0.2",
+    "hapi-pino": "12.1.0",
+    "hapi-swagger": "17.2.1",
+    "joi": "17.12.1",
+    "log-timestamp": "0.3.0",
+    "pg": "8.11.3",
+    "uuid": "9.0.1"
+  },
+  "devDependencies": {
+    "jest": "29.7.0",
+    "nodemon": "3.0.3",
+    "standard": "17.1.0"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "beforeEach",
+      "expect",
+      "test",
+      "afterEach",
+      "jest",
+      "beforeAll",
+      "afterAll"
+    ]
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "**/test-output/**"
+    ]
+  }
+}

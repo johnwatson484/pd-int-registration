@@ -1,0 +1,5 @@
+services:
+  pd-int-registration:
+    build: .
+    image: pd-int-registration
+    container_name: pd-int-registration

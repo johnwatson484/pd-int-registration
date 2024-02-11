@@ -1,0 +1,12 @@
+services:
+  pd-int-registration:
+    build:
+      target: development
+    image: pd-int-registration-development
+    container_name: pd-int-registration-development
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    volumes:
+      - ./app:/home/node/app
+      - ./package.json:/home/node/package.json
