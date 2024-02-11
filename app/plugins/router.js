@@ -1,7 +1,7 @@
-import register from '../routes/register.js'
+import registration from '../routes/registration.js'
 
 const routes = [].concat(
-  register
+  registration
 )
 
 const plugin = {

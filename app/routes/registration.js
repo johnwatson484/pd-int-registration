@@ -3,7 +3,7 @@ import Boom from '@hapi/boom'
 
 export default [{
   method: 'GET',
-  path: '/register/{id}',
+  path: '/registration/{id}',
   options: {
     tags: ['api'],
     description: 'Get registration by ID',
@@ -21,7 +21,7 @@ export default [{
   }
 }, {
   method: 'POST',
-  path: '/register',
+  path: '/registration',
   options: {
     tags: ['api'],
     description: 'Create registration',
@@ -39,7 +39,7 @@ export default [{
   }
 }, {
   method: 'PUT',
-  path: '/register/{id}',
+  path: '/registration/{id}',
   options: {
     tags: ['api'],
     description: 'Update registration',
@@ -60,7 +60,7 @@ export default [{
   }
 }, {
   method: 'PATCH',
-  path: '/register/{id}',
+  path: '/registration/{id}',
   options: {
     tags: ['api'],
     description: 'Partially update registration',
@@ -81,7 +81,7 @@ export default [{
   }
 }, {
   method: 'DELETE',
-  path: '/register/{id}',
+  path: '/registration/{id}',
   options: {
     tags: ['api'],
     description: 'Delete registration',
