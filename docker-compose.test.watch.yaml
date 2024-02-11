@@ -1,6 +1,0 @@
-services:
-  pd-int-registration:
-    command: >
-      sh -c "npm run test:watch"
-    volumes:
-      - ./.git:/home/node/.git
