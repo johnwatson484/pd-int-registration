@@ -1,5 +1,6 @@
 import Joi from 'joi'
 import Boom from '@hapi/boom'
+import config from '../config.js'
 
 export default [{
   method: 'GET',
@@ -17,7 +18,7 @@ export default [{
     }
   },
   handler: (request, h) => {
-    return h.response(`Registration details for ${request.params.id}`)
+    return h.response(`Registration details for ${request.params.id} from ${config.SERVICE_NAME} service`)
   }
 }, {
   method: 'POST',
