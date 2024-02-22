@@ -18,7 +18,7 @@ export default [{
     }
   },
   handler: (request, h) => {
-    return h.response(`Registration details for ${request.params.id} from ${config.SERVICE_NAME} service`)
+    return h.response(`Registration details for ${request.params.id} from ${config.SERVICE_NAME} service with secret ${config.SERVICE_SECRET}`)
   }
 }, {
   method: 'POST',
