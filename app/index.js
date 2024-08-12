@@ -5,7 +5,8 @@ import { getConfig } from './config.js'
 
 const init = async () => {
   setupAppInsights()
-  await getConfig()
+  const config = await getConfig()
+  console.log(config)
   const server = await createServer()
   await server.start()
   console.log('Server running on %s', server.info.uri)
