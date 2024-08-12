@@ -5,6 +5,7 @@ import { parseKeyVaultSecretIdentifier, SecretClient } from '@azure/keyvault-sec
 const config = {}
 
 const getConfig = async () => {
+  console.log(process.env)
   const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.MANAGED_IDENTITY_CLIENT_ID })
   const appConfigClient = new AppConfigurationClient(process.env.APP_CONFIG_ENDPOINT, credential)
 
