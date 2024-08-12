@@ -7,6 +7,7 @@ const setupAppInsights = () => {
     const cloudRoleTag = appInsights.defaultClient.context.keys.cloudRole
     const appName = 'pd-int-registration'
     appInsights.defaultClient.context.tags[cloudRoleTag] = appName
+    console.log('Application Insights enabled')
   }
 }
 

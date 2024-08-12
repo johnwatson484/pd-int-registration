@@ -1,9 +1,11 @@
 import 'log-timestamp'
 import { createServer } from './server.js'
 import { setupAppInsights } from './insights.js'
+import { getConfig } from './config.js'
 
 const init = async () => {
   setupAppInsights()
+  await getConfig()
   const server = await createServer()
   await server.start()
   console.log('Server running on %s', server.info.uri)
