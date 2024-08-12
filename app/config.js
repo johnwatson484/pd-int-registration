@@ -4,7 +4,11 @@ import { parseKeyVaultSecretIdentifier, SecretClient } from '@azure/keyvault-sec
 
 const config = {}
 
-const getConfig = async () => {
+const getConfig = async (refresh = true) => {
+  if (!refresh) {
+    return config
+  }
+
   const credential = new DefaultAzureCredential({ managedIdentityClientId: process.env.MANAGED_IDENTITY_CLIENT_ID })
   const appConfigClient = new AppConfigurationClient(process.env.APP_CONFIG_ENDPOINT, credential)
 
@@ -23,4 +27,4 @@ const getConfig = async () => {
   return config
 }
 
-export { getConfig, config }
+export { getConfig }
