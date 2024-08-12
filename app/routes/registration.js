@@ -1,6 +1,6 @@
 import Joi from 'joi'
 import Boom from '@hapi/boom'
-import config from '../config.js'
+import { getConfig } from '../config.js'
 
 export default [{
   method: 'GET',
@@ -17,7 +17,8 @@ export default [{
       }
     }
   },
-  handler: (request, h) => {
+  handler: async (request, h) => {
+    const config = await getConfig()
     return h.response(`Registration details for ${request.params.id} from ${config.SERVICE_NAME} service with secret ${config.SERVICE_SECRET}`)
   }
 }, {
