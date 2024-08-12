@@ -10,6 +10,7 @@ const getConfig = async () => {
 
   const serviceName = await appConfigClient.getConfigurationSetting({ key: 'pd-int-registration-service-name' })
   const serviceSecret = await appConfigClient.getConfigurationSetting({ key: 'pd-int-registration-service-secret' })
+  const appInsightsConnectionString = await appConfigClient.getConfigurationSetting({ key: 'pd-int-app-insights-connection-string' })
 
   const { name: secretName, vaultUrl } = parseKeyVaultSecretIdentifier(parseSecretReference(serviceSecret).value.secretId)
   const keyVaultClient = new SecretClient(vaultUrl, credential)
@@ -17,10 +18,9 @@ const getConfig = async () => {
 
   config.SERVICE_NAME = serviceName.value || process.env.SERVICE_NAME || 'Registration'
   config.SERVICE_SECRET = secret.value || process.env.SERVICE_SECRET || 'Secret'
+  config.APP_INSIGHTS_CONNECTION_STRING = appInsightsConnectionString.value
 
-  console.log(config)
+  return config
 }
 
-getConfig()
-
-export default config
+export { getConfig, config }
