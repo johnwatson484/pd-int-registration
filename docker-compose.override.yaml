@@ -10,6 +10,14 @@ services:
     volumes:
       - ./app:/home/node/app
       - ./package.json:/home/node/package.json
-      - ~/.azure:/home/node/.azure
     environment:
       APP_CONFIG_ENDPOINT: ${APP_CONFIG_ENDPOINT}
+      IDENTITY_ENDPOINT: http://azure-cli-credentials-proxy:8080/token
+      IMDS_ENDPOINT: dummy_required_value
+  
+  azure-cli-credentials-proxy:
+    image: workleap/azure-cli-credentials-proxy:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - "~/.azure:/app/.azure/"
